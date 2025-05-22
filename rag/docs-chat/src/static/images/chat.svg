@@ -1,0 +1,14 @@
+<!--
+    https://commons.wikimedia.org/wiki/File:Chat_icon.svg
+-->
+<svg width="254" height="213" viewBox="0 0 254 213" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_104_5)">
+<path d="M253.298 0H0V213H253.298V0Z" fill="white"/>
+<path d="M5.75671 48.0691C5.75671 36.4523 16.8268 27.0349 30.4824 27.0349H41.7214H95.6684H196.819C203.377 27.0349 209.666 29.251 214.303 33.1957C218.94 37.1404 221.545 42.4905 221.545 48.0691V100.655V132.206C221.545 143.823 210.475 153.24 196.819 153.24H95.6684L25.1933 206.725L41.7214 153.24H30.4824C16.8268 153.24 5.75672 143.823 5.75672 132.206V100.655L5.75671 48.0691Z" fill="white" stroke="#444444" stroke-width="2" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_104_5">
+<rect width="253.298" height="213" fill="white"/>
+</clipPath>
+</defs>
+</svg>

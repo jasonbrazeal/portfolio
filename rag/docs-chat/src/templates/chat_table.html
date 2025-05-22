@@ -1,0 +1,8 @@
+{% for message in messages %}
+<div class="chat-message {{ message.sender|lower }}">
+  <div class="message-bubble">
+      <p class="message-text">{{ message.text }}</p>
+      <!-- <span class="message-timestamp">9:30 AM</span> -->
+  </div>
+</div>
+{% endfor %}

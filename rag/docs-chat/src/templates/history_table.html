@@ -1,0 +1,12 @@
+{% for chat in chats %}
+    {% if chat.messages|length > 0 %}
+    <tr hx-get="/chat/{{ chat.id }}" hx-target="#history-modal .modal-content-dynamic" data-target="history-modal" class="modal-trigger">
+    {% else %}
+    <tr>
+    {% endif %}
+        <!-- hover over each row to highlight, click to open a modal with all the chat messages -->
+        <td>{{ chat.created_at|format_datetime }}</td>
+        <td>{{ chat.id }}</td>
+        <td>{{ chat.messages|length }}</td>
+    </tr>
+{% endfor %}

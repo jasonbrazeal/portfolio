@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body %}
+<main class="main-content">
+  <div class="container history-page-container"> <h2>Chat History</h2>
+    <table id="history-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>ID</th>
+            <th>Messages</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          {% include 'history_table.html' %}
+        </tbody>
+    </table>
+  </div>
+</main>
+
+<div id="history-modal" class="modal">
+  <div class="modal-content"> <div class="modal-content-dynamic chat-log-modal-container">
+          </div>
+      <div class="modal-footer">
+        <button type="button" id="history-modal-close" class="modal-close">Close</button> </div>
+  </div>
+</div>
+{% endblock %}
+
+
+

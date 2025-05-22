@@ -1,0 +1,71 @@
+ .settings-container {
+    background-color: var(--clr-surface);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+body.dark .settings-container {
+     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.settings-container h2 {
+    color: var(--clr-app-name);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--clr-border);
+    padding-bottom: 0.75rem;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.settings-section {
+    margin-bottom: 1.5rem;
+}
+.settings-section:last-child {
+    margin-bottom: 0;
+}
+
+.settings-section p {
+    color: var(--clr-primary-text);
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+.settings-section p span#api-key {
+    font-weight: 500;
+    color: var(--clr-accent);
+    background-color: var(--clr-icon-bg-light);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+body.dark .settings-section p span#api-key {
+    background-color: #374151;
+}
+
+#settings-actions button {
+    /* settings button specific styles */
+    font-size: 0.9rem;
+    margin-right: 0.75rem;
+}
+
+#settings-actions button:last-child {
+    margin-right: 0;
+}
+
+span.api-key-check {
+    margin-left: 1rem;
+}
+
+/* #settings-actions button[data-target="api-key-modal-delete"] {
+    background-color: #ef4444;
+}
+body.dark #settings-actions button[data-target="api-key-modal-delete"] {
+    color: #fef2f2;
+}
+
+#settings-actions button[data-target="api-key-modal-delete"]:hover {
+    background-color: #dc2626;
+} */

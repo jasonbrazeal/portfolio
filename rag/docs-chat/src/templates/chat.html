@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block body %}
+<main class="main-content">
+  <div id="chat-container" class="container">
+    <h2>Conversation</h2>
+    <div id="chat-log">
+      {% if chat %}
+      {% include 'chat_table.html' %}
+      {% endif %}
+    </div>
+
+    <form id="chat-form" hx-post="/chat" hx-target="#chat-log" hx-swap="innerHTML" hx-indicator="#chat-backdrop">
+        <label for="user-message">Enter your message:</label>
+        <input type="text" name="user_message" id="user-message" placeholder="Type your message here..." minlength="1" maxlength="1000">
+        <input id="chat-form-submit" type="submit" class="hide" />
+        <button type="button" id="submit-message">Send</button>
+    </form>
+
+    <div id="chatbot-buttons">
+        <a href="/chat/new"><button type="button" class="">New Chat</button></a>
+        <a href="/history"><button type="button" class="">View History</button></a>
+    </div>
+  </div>
+</main>
+
+<div id="chat-backdrop" class="htmx-indicator">
+  <svg id="loader" width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" fill-rule="evenodd">
+          <g transform="translate(1 1)" stroke-width="2">
+              <circle stroke-opacity=".5" cx="18" cy="18" r="18"/>
+              <path d="M36 18c0-9.94-8.06-18-18-18">
+                  <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      from="0 18 18"
+                      to="360 18 18"
+                      dur="1s"
+                      repeatCount="indefinite"/>
+              </path>
+          </g>
+      </g>
+  </svg>
+</div>
+{% endblock %}
