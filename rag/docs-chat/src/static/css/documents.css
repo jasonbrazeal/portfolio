@@ -1,0 +1,164 @@
+.documents-page-container {
+    background-color: var(--clr-surface);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 900px;
+    margin-top: 0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+body.dark .documents-page-container {
+     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.documents-page-container h2 {
+    color: var(--clr-app-name);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--clr-border);
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+#drop-zone {
+    border: 2px dashed var(--clr-border);
+    border-radius: 8px;
+    padding: 2.5rem;
+    text-align: center;
+    background-color: var(--clr-background);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    margin-bottom: 2rem;
+}
+#drop-zone.drop-zone-dragging {
+    border-color: var(--clr-accent);
+    background-color: color-mix(in srgb, var(--clr-accent) 10%, var(--clr-background));
+}
+#drop-zone svg {
+    width: 48px;
+    height: 48px;
+    color: var(--clr-accent);
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#drop-zone .drop-title {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--clr-secondary-text);
+    margin-bottom: 0.75rem;
+}
+
+#file-input-button { /* This is the "Browse device" button */
+    /* Using .btn-secondary styles */
+    background-color: var(--clr-accent);
+    color: var(--clr-btn-primary-text);
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--clr-chat-button-secondary-border);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    display: inline-block; /* To allow margin and padding */
+    margin-top: 0.5rem;
+}
+#file-input-button:hover {
+    background-color: var(--clr-accent-dark);
+    transform: translateY(-1px);
+}
+
+
+.clear-all-container { /* New container for centering the button */
+    text-align: center;
+    margin-bottom: 1.5rem; /* Space before the table */
+}
+
+#clear-all-trigger { /* "Clear all documents" button */
+    /* Applying .btn-primary styles */
+    background-color: var(--clr-accent);
+    color: var(--clr-btn-primary-text);
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    display: inline-block;
+    /* margin-bottom is now on .clear-all-container */
+}
+#clear-all-trigger:hover {
+    background-color: var(--clr-accent-dark);
+    transform: translateY(-1px);
+}
+
+
+#doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem; /* If #clear-all-trigger is above */
+}
+
+#doc-table thead th {
+    background-color: var(--clr-chat-button-secondary-bg);
+    color: var(--clr-secondary-text);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-bottom: 2px solid var(--clr-border);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+body.dark #doc-table thead th {
+    background-color: #2c3747;
+}
+
+#doc-table tbody tr {
+    border-bottom: 1px solid var(--clr-border);
+}
+#doc-table tbody tr:last-child {
+    border-bottom: none;
+}
+#doc-table td {
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+    color: var(--clr-primary-text);
+    vertical-align: middle;
+}
+#doc-table td:first-child { /* Filename */
+    font-weight: 500;
+    color: var(--clr-app-name);
+}
+#doc-table td:last-child { /* Uploaded date */
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--clr-secondary-text);
+}
+
+/* Modal specific styles for #clear-docs-modal */
+/* General modal styles from main.css will apply, these are overrides or specifics */
+#clear-docs-modal .modal-footer #clear-docs-submit {
+    /* Make "Yes" button more prominent, like a danger action */
+    background-color: #ef4444; /* Red for delete */
+    color: #fef2f2; /* Light text for delete button */
+}
+#clear-docs-modal .modal-footer #clear-docs-submit:hover {
+    background-color: #dc2626; /* Darker red on hover */
+}
+#clear-docs-modal .modal-footer #clear-docs-cancel {
+    /* Standard secondary/flat button for cancel */
+    background-color: transparent;
+    color: var(--clr-accent);
+    box-shadow: none;
+    border: none;
+}
+#clear-docs-modal .modal-footer #clear-docs-cancel:hover {
+    background-color: var(--clr-chat-button-secondary-bg);
+}

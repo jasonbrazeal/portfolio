@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block body %}
+<main class="main-content">
+  <div class="container documents-page-container">
+    <h2>Documents</h2>
+
+    <div id="drop-zone">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <path
+            d="M2 20V4C2 3.44772 2.44772 3 3 3H8.44792C8.79153 3 9.11108 3.17641 9.29416 3.46719L10.5947 5.53281C10.7778 5.82359 11.0974 6 11.441 6H21C21.5523 6 22 6.44772 22 7V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20Z"
+            stroke="currentColor" stroke-width="1.5"></path>
+          <path d="M9 13L12 10L15 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path d="M12 10V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        </g>
+      </svg>
+      <form id="document-form" action="/upload" method="post" enctype="multipart/form-data">
+        <label for="documents">
+          <span class="drop-title">Drag file(s) here or</span>
+          <input type="file" name="documents" id="documents" multiple hidden>
+          <button type="button" id="file-input-button">Browse device</button> </label>
+      </form>
+    </div>
+
+    <div class="clear-all-container"> <button data-target="clear-docs-modal" class="modal-trigger btn-primary" id="clear-all-trigger">Clear all documents</button></div>
+
+    {% if documents %}
+    <table id="doc-table">
+      <thead>
+        <tr>
+          <th>Filename</th>
+          <th>Uploaded</th>
+        </tr>
+      </thead>
+      <tbody id="doc-table-body">
+        {% for document in documents %}
+        <tr>
+          <td>{{ document.filename }}</td>
+          <td>{{ document.created_at|format_datetime }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  </div>
+</main>
+
+<div id="clear-docs-modal" class="modal">
+  <div class="modal-content">
+    <h4>Confirm</h4>
+    <form id="clear-docs-form" action="/clear" method="post">
+      <p>Are you sure you want to clear all documents?</p>
+    </form>
+    <div class="modal-footer">
+      <button type="button" id="clear-docs-cancel" class="modal-close secondary-action">Cancel</button> <button
+        type="button" id="clear-docs-submit" class="modal-close danger-action">Yes</button>
+    </div>
+  </div>
+</div>
+
+<div id="backdrop" class="htmx-indicator hide"> <svg id="loader" width="38" height="38" viewBox="0 0 38 38"
+    xmlns="http://www.w3.org/2000/svg" stroke="#1a5e20">
+    <g fill="none" fill-rule="evenodd">
+      <g transform="translate(1 1)" stroke-width="2">
+        <circle stroke-opacity=".5" cx="18" cy="18" r="18" />
+        <path d="M36 18c0-9.94-8.06-18-18-18">
+          <animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s"
+            repeatCount="indefinite" />
+        </path>
+      </g>
+    </g>
+  </svg>
+</div>
+{% endblock %}

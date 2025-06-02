@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block body %}
+<main class="main-content">
+  <div class="container settings-container">
+    <h2>Settings</h2>
+    <div class="settings-section">
+      <p>OpenAI API key: <span id="api-key">{{ api_key_masked or 'None' }}</span></p>
+    </div>
+    <div class="settings-section">
+      <div id="settings-actions">
+        <button type="button" data-target="api-key-modal" class="modal-trigger" id="set-key-button">Set key</button>
+        <button type="button" data-target="api-key-modal-delete" id="delete-button" class="modal-trigger">Delete key</button>
+        <button type="button" hx-get="/api-key" hx-target="#api-key" id="api-key-check">Check key</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="api-key-modal" class="modal">
+    <div class="modal-content">
+      <h4>Set key</h4>
+      <form id="api-key-form">
+        <div class="input-field">
+          <input placeholder="API key" id="api-key-input" name="api-key-input" type="text" class="validate" required>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <a href="#!" id="api-key-cancel" class="modal-close btn-flat">Cancel</a>
+        <a href="#!" hx-post="/api-key" hx-target="#api-key" hx-include="#api-key-form" id="api-key-submit"
+          class="modal-close btn-flat">Submit</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="api-key-modal-delete" class="modal">
+    <div class="modal-content">
+      <h4>Delete key?</h4>
+      <p>Are you sure you want to delete the API key? This action cannot be undone.</p>
+      <div class="modal-footer">
+        <a href="#!" id="api-key-delete-cancel" class="modal-close btn-flat">Cancel</a>
+        <a href="#!" hx-delete="/api-key" hx-target="#api-key" id="api-key-delete" class="modal-close btn-flat">Delete</a>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
